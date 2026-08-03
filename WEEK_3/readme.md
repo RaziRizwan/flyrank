@@ -1,10 +1,10 @@
 ## Week 3
 
 ### Why SQLite?
-SQLite needs no separate server process or install — it's a single file (`tasks.db`) and
-a library built into Python. That makes it the right tool for a small project like this
-one: zero setup, and the data survives restarts. (For many concurrent writers or a
-networked multi-server setup, you'd reach for Postgres instead — that's A3, next week.)
+SQLite requires no separate server process or installation, it stores all data in a single database file (`tasks.db`) and is included as part of Python's standard library. 
+This makes it an ideal choice for a small project like this: it requires virtually no setup, is lightweight, and preserves data across application restarts. 
+While SQLite is excellent for single-user or low-concurrency applications, larger systems with many simultaneous users or distributed, multi-server deployments are better served by a client-server database such as PostgreSQL.
+
 ##
 ### DB Browser screenshot
 ###
