@@ -11,6 +11,8 @@ While SQLite is excellent for single-user or low-concurrency applications, large
 ![DB Browser screenshot](Verification_screenshot_of_DB_Browser(Task4).png)
 
 
+## W3-A3 Containerize your stack
+
 ## Run PostgreSQL
 
 ```bash
@@ -22,3 +24,11 @@ docker run --name taskdb -e POSTGRES_PASSWORD=dev -e POSTGRES_DB=tasks -p 5432:5
 ```bash
 python -m uvicorn app:app --reload
 ```
+
+## Stage 2: Read from PostgreSQL
+
+* Updated the API to read task data directly from the PostgreSQL database using parameterized `psycopg` queries.
+* Implemented `GET /tasks` to return all tasks and `GET /tasks/{id}` to retrieve a single task by its ID.
+* Preserved the existing API behavior by returning `404` with `{"error": "Task not found"}` for unknown task IDs.
+* Verified that all task data is fetched from PostgreSQL instead of in-memory storage or SQLite.
+
