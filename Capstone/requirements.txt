@@ -1,0 +1,17 @@
+# Install with:  pip install -r requirements.txt
+# (Python 3.10+ required)
+
+fastapi>=0.111
+uvicorn[standard]>=0.29
+pydantic>=2.0
+email-validator>=2.0        # required for Pydantic's EmailStr
+psycopg[binary]>=3.1
+python-dotenv>=1.0
+bcrypt>=4.1                 # NOTE: do not add passlib -- its bcrypt backend is broken
+                             # against bcrypt>=4.1 (confirmed while building this); bcrypt
+                             # is used directly instead, see src/auth.py
+pyjwt>=2.8
+httpx>=0.27                 # used both by TestClient and by services/geo.py's real HTTP calls
+
+# --- test suite ---
+pytest>=8.0

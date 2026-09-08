@@ -1,0 +1,4 @@
+run: docker compose up --build
+base_url: http://localhost:8000
+seed: docker compose exec api python ../seed.py
+test: docker compose exec api sh -c "cd .. && pytest tests/ -v"

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Acme Corp -- a customer site (different origin, on purpose)</title>
+  <style>
+    body { font-family: sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; }
+    .note { background: #f5f5f5; border-left: 4px solid #999; padding: 10px 16px; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Acme Corp</h1>
+  <p>This page proves the whole point of an embeddable widget: it renders here, on a
+     page the widget platform's own team never wrote, served from a completely
+     different origin than the API.</p>
+
+  <div class="note">
+    <strong>Different origin, on purpose:</strong> serve this file with
+    <code>python -m http.server 5500</code> (or <code>npx serve</code>) from the
+    <code>customer-site/</code> folder -- so this page lives at
+    <code>http://localhost:5500</code> while the API lives at
+    <code>http://localhost:8000</code>. That mismatch is exactly what makes CORS,
+    the config endpoint's cache headers, and the submission endpoint's cross-origin
+    handling actually get exercised, instead of just looking correct on paper.
+  </div>
+
+  <hr>
+
+  <h2>The widget, embedded with one line</h2>
+
+  <!--
+    Replace 1 with the id of a widget you created via POST /widgets (see README / the
+    seed script). The script tag is the entire integration -- nothing else on this page
+    knows anything about the widget platform.
+  -->
+  <script src="http://localhost:8000/widget.js?v=1&id=1"></script>
+
+</body>
+</html>
